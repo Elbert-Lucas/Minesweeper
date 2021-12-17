@@ -1,8 +1,12 @@
 package GUI;
+import Backend.DrawBombs;
+import GUI.Elements.Bomb;
+import GUI.Elements.BombListener;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class Gui {
+
     public  void initFrame(){
         /*
         This method initialize the javax frame, and calls the method to create the board
@@ -20,12 +24,12 @@ public class Gui {
         frame.setVisible(true);
     }
 
-    public JButton[][] createBoard(JFrame frame){
+    public Bomb [][] createBoard(JFrame frame){
         /*
         This method create the board using buttons
          */
-        JButton [][] field = new JButton[12][12];
-        JButton mine;
+        Bomb [][] field = new Bomb[12][12];
+        Bomb bomb;
 
         int minesQty = 0;
         int x = 60, y = 40;
@@ -35,12 +39,18 @@ public class Gui {
             12*12 == board size
          */
         while (minesQty < 12*12 ){
-            mine = new JButton();
-            mine.setBounds(x,y, 30,30);
-            mine.addActionListener(new BombListener(frame, mine));
+            bomb = new Bomb();
+            bomb.setBounds(x,y, 30,30);
+            bomb.addActionListener(new BombListener(frame, bomb));
 
-            field [index][index2D] = mine;
-            frame.add(mine);
+
+            if (DrawBombs.explosivesQty < 20){
+                DrawBombs.draw(bomb);
+                // This if puts dangerous bombs on random places
+            }
+
+            field [index][index2D] = bomb;
+            frame.add(bomb);
 
             x += 30;
             index2D++;
@@ -57,6 +67,12 @@ public class Gui {
              */
             }
         }
+
+        /*
+        this loop confirms if has 20 bombs on game
+         */
+        while (DrawBombs.explosivesQty < 20) DrawBombs.confirmDraw(field);
+
         return field;
     }
 }
