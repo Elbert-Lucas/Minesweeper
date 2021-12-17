@@ -2,6 +2,7 @@ import GUI.Gui;
 
 public class Main {
     public static void main(String[] args) {
-        Gui.initFrame();
+        Gui gui = new Gui();
+        gui.initFrame();
     }
 }
