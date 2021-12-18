@@ -4,6 +4,8 @@ import javax.swing.*;
 
 public class Bomb extends JButton {
 
+    int closeBombs;
+    Bomb[] neighbors;
 
     boolean isExplosive;
 
@@ -17,5 +19,13 @@ public class Bomb extends JButton {
     }
     public void setExplosive(boolean explosive) {
         isExplosive = explosive;
+    }
+
+    public int getCloseBombs() {
+        return closeBombs;
+    }
+
+    public void setCloseBombs(int closeBomb) {
+        this.closeBombs = closeBomb;
     }
 }

@@ -8,9 +8,11 @@ import javax.swing.*;
 public class Gui {
 
     public  void initFrame(){
+
         /*
         This method initialize the javax frame, and calls the method to create the board
          */
+
         JFrame frame = new JFrame("Minesweeper");
         frame.setLayout(null);
 
@@ -25,9 +27,11 @@ public class Gui {
     }
 
     public Bomb [][] createBoard(JFrame frame){
+
         /*
         This method create the board using buttons
          */
+
         Bomb [][] field = new Bomb[12][12];
         Bomb bomb;
 
@@ -35,16 +39,14 @@ public class Gui {
         int x = 60, y = 40;
         int index = 0, index2D = 0;
 
-        /*
-            12*12 == board size
-         */
+
+        //12*12 == board size
         while (minesQty < 12*12 ){
             bomb = new Bomb();
             bomb.setBounds(x,y, 30,30);
             bomb.addActionListener(new BombListener(frame, bomb));
 
-
-            if (DrawBombs.explosivesQty < 20){
+            if (DrawBombs.explosivesQty < 40){
                 DrawBombs.draw(bomb);
                 // This if puts dangerous bombs on random places
             }
@@ -62,16 +64,12 @@ public class Gui {
 
                 index ++;
                 index2D = 0;
-             /*
-                new column
-             */
+           // new column
             }
         }
 
-        /*
-        this loop confirms if has 20 bombs on game
-         */
-        while (DrawBombs.explosivesQty < 20) DrawBombs.confirmDraw(field);
+        while (DrawBombs.explosivesQty < 40) DrawBombs.confirmDraw(field);
+        //this loop confirms if it has 20 bombs on game
 
         return field;
     }
