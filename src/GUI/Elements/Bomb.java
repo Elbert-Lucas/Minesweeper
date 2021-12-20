@@ -29,12 +29,12 @@ public class Bomb extends JButton {
     public int getCloseBombs() {
         return closeBombs;
     }
+    public void setCloseBombs(int closeBomb) {
+        if (!isExplosive)this.closeBombs = closeBomb;
+    }
 
     public void addNeighbor (Bomb bomb){
         if (bomb != null) neighbors.add(bomb);
-    }
-    public void setCloseBombs(int closeBomb) {
-        this.closeBombs = closeBomb;
     }
 
 }

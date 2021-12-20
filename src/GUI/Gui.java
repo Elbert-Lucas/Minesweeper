@@ -4,6 +4,7 @@ import GUI.Elements.Bomb;
 import GUI.Elements.BombListener;
 import Backend.AddNeighbors;
 import javax.swing.*;
+import java.awt.*;
 
 public class Gui {
 
@@ -20,8 +21,8 @@ public class Gui {
         frame.setLocationRelativeTo(null);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         createBoard(frame);
+
         frame.setVisible(true);
     }
 
@@ -43,7 +44,7 @@ public class Gui {
         while (minesQty < 12*12 ){
             bomb = new Bomb();
             bomb.setBounds(x,y, 30,30);
-            bomb.addActionListener(new BombListener(frame, bomb));
+            bomb.addActionListener(new BombListener(frame, bomb, x, y));
 
             DrawBombs.draw(bomb);
             // This if puts dangerous bombs on random places

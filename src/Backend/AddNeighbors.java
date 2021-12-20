@@ -25,6 +25,11 @@ public class AddNeighbors{
                field[auxIndex][auxIndex2D].addNeighbor(bomb);
                //first line add the previous buttons
                //second line add next buttons
+               if (bomb.isExplosive()){
+                   field[auxIndex][auxIndex2D].setCloseBombs(field[auxIndex][auxIndex2D].getCloseBombs() + 1);
+               }else if(field[auxIndex][auxIndex2D].isExplosive()){
+                   bomb.setCloseBombs(bomb.getCloseBombs() + 1);
+               }
            }catch (Exception ignored){
                //Just ignore if not exist the button
            };
