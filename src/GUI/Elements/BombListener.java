@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BombListener implements ActionListener {
-
     JFrame frame;
     Bomb bomb;
 
@@ -23,6 +22,7 @@ public class BombListener implements ActionListener {
     }
 }
 class blinkNeighbors{
+    //test neighbors
     public void blink(Bomb bomb){
         for (int i=0; i<=bomb.neighbors.size(); i++){
             try {

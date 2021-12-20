@@ -7,16 +7,22 @@ public class DrawBombs {
 
 
     public static void draw(Bomb bomb){
-        if ((int) (Math.random() * 12) == 3){
+        /*
+        This method create explosives bombs using Math.random
+         */
+        if ((int) (Math.random() * 12) == 3 && explosivesQty < 30){
             bomb.setExplosive(true);
             explosivesQty ++;
         }
     }
 
     public static void confirmDraw(Bomb[][] field){
+        /*
+        This method is used if the first method don't create all bombs
+         */
         for (Bomb[] bombs : field){
             for (Bomb bomb:bombs){
-                if (explosivesQty >= 40){
+                if (explosivesQty >= 30){
                     return;
                 }
                 else if (! bomb.isExplosive() && (int) (Math.random() * 12)==3){

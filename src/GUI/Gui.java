@@ -22,11 +22,10 @@ public class Gui {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         createBoard(frame);
-
         frame.setVisible(true);
     }
 
-    public Bomb [][] createBoard(JFrame frame){
+    public void createBoard(JFrame frame){
 
         /*
         This method create the board using buttons
@@ -46,10 +45,9 @@ public class Gui {
             bomb.setBounds(x,y, 30,30);
             bomb.addActionListener(new BombListener(frame, bomb));
 
-            if (DrawBombs.explosivesQty < 40){
-                DrawBombs.draw(bomb);
-                // This if puts dangerous bombs on random places
-            }
+            DrawBombs.draw(bomb);
+            // This if puts dangerous bombs on random places
+
 
             AddNeighbors.addNeighbors(bomb, field,index, index2D);
 
@@ -70,9 +68,7 @@ public class Gui {
             }
         }
 
-        while (DrawBombs.explosivesQty < 40) DrawBombs.confirmDraw(field);
-        //this loop confirms if it has 20 bombs on game
-
-        return field;
+        while (DrawBombs.explosivesQty < 30) DrawBombs.confirmDraw(field);
+        //this loop confirms if it has 30 bombs on game
     }
 }
