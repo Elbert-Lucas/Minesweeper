@@ -1,15 +1,20 @@
 package GUI.Elements;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Bomb extends JButton {
 
     int closeBombs;
-    Bomb[] neighbors;
-
+    List<Bomb> neighbors;
     boolean isExplosive;
 
-    public Bomb(){}
+    public Bomb(){
+        neighbors = new ArrayList<>();
+    }
+
     public Bomb(boolean isExplosive){
         this.isExplosive = isExplosive;
     }
@@ -25,7 +30,11 @@ public class Bomb extends JButton {
         return closeBombs;
     }
 
+    public void addNeighbor (Bomb bomb){
+        if (bomb != null) neighbors.add(bomb);
+    }
     public void setCloseBombs(int closeBomb) {
         this.closeBombs = closeBomb;
     }
+
 }

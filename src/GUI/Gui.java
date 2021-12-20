@@ -2,7 +2,7 @@ package GUI;
 import Backend.DrawBombs;
 import GUI.Elements.Bomb;
 import GUI.Elements.BombListener;
-
+import Backend.AddNeighbors;
 import javax.swing.*;
 
 public class Gui {
@@ -50,6 +50,8 @@ public class Gui {
                 DrawBombs.draw(bomb);
                 // This if puts dangerous bombs on random places
             }
+
+            AddNeighbors.addNeighbors(bomb, field,index, index2D);
 
             field [index][index2D] = bomb;
             frame.add(bomb);

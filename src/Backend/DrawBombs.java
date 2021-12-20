@@ -7,7 +7,7 @@ public class DrawBombs {
 
 
     public static void draw(Bomb bomb){
-        if ((int) (Math.random() * 12) % 3 == 0){
+        if ((int) (Math.random() * 12) == 3){
             bomb.setExplosive(true);
             explosivesQty ++;
         }
@@ -19,7 +19,7 @@ public class DrawBombs {
                 if (explosivesQty >= 40){
                     return;
                 }
-                else if (! bomb.isExplosive() && (int) (Math.random() * 12) % 3 ==0){
+                else if (! bomb.isExplosive() && (int) (Math.random() * 12)==3){
                     bomb.setExplosive(true);
                     explosivesQty ++;
                 }

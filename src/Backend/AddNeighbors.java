@@ -2,48 +2,30 @@ package Backend;
 
 import GUI.Elements.Bomb;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddNeighbors{
-    public static void addNeighbors(Bomb[][] fild){
-        Bomb [] neighbors;
-        for (int index = 0; index <= fild.length; index++){
+    public static void addNeighbors(Bomb bomb, Bomb[][] field, int index, int index2D){
+       int auxIndex = index -1;
+       int auxIndex2D = index2D -1;
 
-            for (int index2D = 0; index2D <= fild[index].length; index2D++){
+       while (auxIndex <= index &&
+               auxIndex2D <= index2D + 1){
 
-                  if (index2D == 0){
-                    //Is the first column and row
-                      neighbors = new Bomb[]{fild[index][index2D + 1],
-                                             fild[index + 1][index2D],
-                                             fild[index + 1][index2D + 1]};
+           try{
+               bomb.addNeighbor(field[auxIndex][auxIndex2D]);
+               field[auxIndex][auxIndex2D].addNeighbor(bomb);
+           }catch (Exception ignored){
+           };
 
-                  }else if (index == fild.length-1){
-                      //Is the column and row
-                      neighbors = new Bomb[]{fild[index][index2D - 1],
-                                             fild[index - 1][index2D],
-                                             fild[index - 1 ][index2D - 1]};
-
-                  }else if (index == 0) {
-                      //Is the first row
-                      neighbors = new Bomb[]{fild[index][index2D - 1],
-                                             fild[index][index2D + 1],
-                                             fild[index - 1][index2D],
-                                             fild[index - 1 ][index2D - 1]};
-
-
-                  } else if (index2D == fild[0].length - 1) {
-                      //Is the last row
-
-                      neighbors = new Bomb[6];
-
-                  }
-
-                  }
-                  else neighbors = new Bomb[8];
-
-                  fild[index][index2D].setCloseBombs();
-                  // Check if the index is the ends of board
-            }
-
-        }
+           if (auxIndex2D >= index2D + 1){
+               auxIndex++;
+               auxIndex2D = index2D - 1;
+           }else {
+               auxIndex2D++;
+           }
+       }
     }
     public static void AddNumbers(){
 
