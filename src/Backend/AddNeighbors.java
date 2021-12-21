@@ -1,9 +1,6 @@
 package Backend;
-
 import GUI.Elements.Bomb;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class AddNeighbors{
     public static void addNeighbors(Bomb bomb, Bomb[][] field, int index, int index2D){
@@ -25,15 +22,15 @@ public class AddNeighbors{
                field[auxIndex][auxIndex2D].addNeighbor(bomb);
                //first line add the previous buttons
                //second line add next buttons
-               if (bomb.isExplosive()){
-                   field[auxIndex][auxIndex2D].setCloseBombs(field[auxIndex][auxIndex2D].getCloseBombs() + 1);
-               }else if(field[auxIndex][auxIndex2D].isExplosive()){
-                   bomb.setCloseBombs(bomb.getCloseBombs() + 1);
-               }
+
+               //this method call set the numbers:
+               addNumbers( bomb,  field, auxIndex, auxIndex2D);
+
            }catch (Exception ignored){
                //Just ignore if not exist the button
            };
 
+           // If statement to update row and columns neighbors:
            if (auxIndex2D >= index2D + 1){
                auxIndex++;
                auxIndex2D = index2D - 1;
@@ -41,9 +38,20 @@ public class AddNeighbors{
                auxIndex2D++;
            }
        }
+        System.out.println("------------");
        //This loop walk among next buttons
     }
-    public static void AddNumbers(){
 
+    public static void addNumbers(Bomb bomb, Bomb[][] field, int auxIndex, int auxIndex2D){
+        if (bomb.isExplosive()){
+            field[auxIndex][auxIndex2D].setCloseBombs();
+        }else if(field[auxIndex][auxIndex2D].isExplosive()){
+            bomb.setCloseBombs();
+        }
+    }
+    public static void addNumbersInConfirmDraw(Bomb bomb){
+        for (Bomb neighbor:bomb.getNeighbors()){
+            neighbor.setCloseBombs();
+        }
     }
 }

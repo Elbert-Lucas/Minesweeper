@@ -11,6 +11,7 @@ public class BombListener implements ActionListener {
     JFrame frame;
     Bomb bomb;
     int x, y;
+    static int count = 0;
 
     public BombListener(JFrame frame, Bomb bomb, int x, int y){
         this.frame = frame;
@@ -27,12 +28,15 @@ public class BombListener implements ActionListener {
         frame.remove(bomb);
 
         if (bomb.closeBombs != 0) {
-            //Show the number just if it´s different of 0
+            //Show the number just if it´s different from 0
             Clear.clearOne(frame, bomb, x, y);
         }
         frame.repaint();
 
-        if (bomb.isExplosive)System.out.println("PERDEU");
+        if (bomb.isExplosive){
+            count++;
+            System.out.println(count);
+        }
         new blinkNeighbors().blink(bomb);
     }
 }

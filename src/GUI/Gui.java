@@ -4,7 +4,6 @@ import GUI.Elements.Bomb;
 import GUI.Elements.BombListener;
 import Backend.AddNeighbors;
 import javax.swing.*;
-import java.awt.*;
 
 public class Gui {
 
@@ -46,8 +45,8 @@ public class Gui {
             bomb.setBounds(x,y, 30,30);
             bomb.addActionListener(new BombListener(frame, bomb, x, y));
 
-            DrawBombs.draw(bomb);
-            // This if puts dangerous bombs on random places
+            //DrawBombs.draw(bomb);
+            // This function call puts dangerous bombs on random places
 
 
             AddNeighbors.addNeighbors(bomb, field,index, index2D);
@@ -69,7 +68,7 @@ public class Gui {
             }
         }
 
-        while (DrawBombs.explosivesQty < 30) DrawBombs.confirmDraw(field);
-        //this loop confirms if it has 30 bombs on game
+        while (DrawBombs.explosivesQty < 20) DrawBombs.confirmDraw(field);
+        //this loop confirms if it has 20 bombs on game
     }
 }

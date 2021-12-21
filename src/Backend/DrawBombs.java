@@ -10,7 +10,7 @@ public class DrawBombs {
         /*
         This method create explosives bombs using Math.random
          */
-        if ((int) (Math.random() * 12) == 3 && explosivesQty < 30){
+        if ((int) (Math.random() * 12) == 3 && explosivesQty < 20){
             bomb.setExplosive(true);
             explosivesQty ++;
         }
@@ -22,11 +22,12 @@ public class DrawBombs {
          */
         for (Bomb[] bombs : field){
             for (Bomb bomb:bombs){
-                if (explosivesQty >= 30){
+                if (explosivesQty >= 20){
                     return;
                 }
                 else if (! bomb.isExplosive() && (int) (Math.random() * 12)==3){
                     bomb.setExplosive(true);
+                    AddNeighbors.addNumbersInConfirmDraw(bomb);
                     explosivesQty ++;
                 }
             }
