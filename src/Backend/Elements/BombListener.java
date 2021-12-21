@@ -6,8 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class BombListener implements ActionListener {
+public class BombListener implements MouseListener {
     JFrame frame;
     Bomb bomb;
     int x, y;
@@ -21,31 +23,54 @@ public class BombListener implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent click) {
+    public void mouseClicked(MouseEvent click) {
         /*
-        after click, the button is removed and the number is showed
+            If the right button is clicked, put or remove a bomb checkmark.
+            If is the left button, click the button.
+            Scroll button does anything
          */
-        if (bomb.closeBombs > 0) {
-            //Show the number just if it´s different from 0
-            Clear.clearOne(frame, bomb, x, y);
-        }else {
-                Clear.clearSequence(frame, bomb);
-        }
-        frame.repaint();
+        if (click.getButton() == MouseEvent.BUTTON3) {
+            Checkmark.checkmark(bomb);
+        } else if (click.getButton() == MouseEvent.BUTTON1){
 
-        if (bomb.isExplosive){
-            //LOSE
+            if (bomb.closeBombs > 0) {
+                //Show the number just if it´s different from 0
+                Clear.clearOne(frame, bomb, x, y);
+            } else {
+                //Clear sequential zeros
+                Clear.clearSequence(frame, bomb);
+            }
+            frame.repaint();
+
+            if (bomb.isExplosive) {
+                //LOSE
+            }
         }
     }
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }
-class blinkNeighbors{
-    //test neighbors
-    public void blink(Bomb bomb){
-        for (int i=0; i<=bomb.neighbors.size(); i++){
-            try {
-                bomb.neighbors.get(i).setBackground(Color.BLUE);
-            }catch (Exception e){
-                break;
-            }
-        }}
+class Checkmark{
+    //put or remove checkmarks
+    public static void checkmark(Bomb bomb) {
+        if (bomb.getBackground() == Color.RED)bomb.setBackground(Color.getColor("238,238,238"));
+        else bomb.setBackground(Color.RED);
+    }
 }

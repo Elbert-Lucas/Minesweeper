@@ -43,7 +43,7 @@ public class Gui {
         while (minesQty < 12*12 ){
             bomb = new Bomb();
             bomb.setBounds(x,y, 30,30);
-            bomb.addActionListener(new BombListener(frame, bomb, x, y));
+            bomb.addMouseListener(new BombListener(frame, bomb, x, y));
 
             //DrawBombs.draw(bomb);
             // This function call puts dangerous bombs on random places
