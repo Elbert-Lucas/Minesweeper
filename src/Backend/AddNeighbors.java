@@ -1,5 +1,5 @@
 package Backend;
-import GUI.Elements.Bomb;
+import Backend.Elements.Bomb;
 
 
 public class AddNeighbors{
@@ -38,7 +38,6 @@ public class AddNeighbors{
                auxIndex2D++;
            }
        }
-        System.out.println("------------");
        //This loop walk among next buttons
     }
 

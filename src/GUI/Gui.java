@@ -1,7 +1,7 @@
 package GUI;
 import Backend.DrawBombs;
-import GUI.Elements.Bomb;
-import GUI.Elements.BombListener;
+import Backend.Elements.Bomb;
+import Backend.Elements.BombListener;
 import Backend.AddNeighbors;
 import javax.swing.*;
 

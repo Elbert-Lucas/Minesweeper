@@ -1,6 +1,6 @@
 package Backend;
 
-import GUI.Elements.Bomb;
+import Backend.Elements.Bomb;
 
 public class DrawBombs {
     public static int explosivesQty = 0;

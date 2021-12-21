@@ -1,4 +1,4 @@
-package GUI.Elements;
+package Backend.Elements;
 
 import Backend.Clear;
 
@@ -25,19 +25,17 @@ public class BombListener implements ActionListener {
         /*
         after click, the button is removed and the number is showed
          */
-        frame.remove(bomb);
-
-        if (bomb.closeBombs != 0) {
+        if (bomb.closeBombs > 0) {
             //Show the number just if it´s different from 0
             Clear.clearOne(frame, bomb, x, y);
+        }else {
+                Clear.clearSequence(frame, bomb);
         }
         frame.repaint();
 
         if (bomb.isExplosive){
-            count++;
-            System.out.println(count);
+            //LOSE
         }
-        new blinkNeighbors().blink(bomb);
     }
 }
 class blinkNeighbors{
