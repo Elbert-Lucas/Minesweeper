@@ -35,7 +35,7 @@ public class Bomb extends JButton {
     }
     public void setCloseBombs() {
         if (!this.isExplosive) this.closeBombs++;
-        else this.closeBombs = 6;
+        else this.closeBombs = 9;
     }
 
     public void addNeighbor (Bomb bomb){

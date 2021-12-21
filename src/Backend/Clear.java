@@ -6,9 +6,16 @@ import javax.swing.*;
 
 public class Clear {
     public static void clearOne(JFrame frame, Bomb bomb, int x, int y){
-        frame.remove(bomb);
-        JLabel number = new JLabel(String.valueOf(bomb.getCloseBombs()));
+
+        JLabel number;
+
+        if (bomb.isExplosive()) number = new JLabel("x");
+        else number = new JLabel(String.valueOf(bomb.getCloseBombs()));
+
         number.setBounds(x + 11, y + 3, 20, 25);
+
+        frame.remove(bomb);
+
         frame.add(number);
 
     }
