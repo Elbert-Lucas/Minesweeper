@@ -25,7 +25,7 @@ public class DrawBombs {
                 if (explosivesQty >= 20){
                     return;
                 }
-                else if (! bomb.isExplosive() && (int) (Math.random() * 12)==3){
+                else if (!bomb.isExplosive() && (int) (Math.random() * 12)==3){
                     bomb.setExplosive(true);
                     AddNeighbors.addNumbersInConfirmDraw(bomb);
                     explosivesQty ++;

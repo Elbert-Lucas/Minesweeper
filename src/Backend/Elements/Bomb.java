@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bomb extends JButton {
-
+    /*
+        Bomb fields are just JButton with a few extra elements
+     */
     int closeBombs;
     List<Bomb> neighbors;
     boolean isExplosive;
@@ -15,6 +17,7 @@ public class Bomb extends JButton {
     {
         closeBombs = 0;
     }
+
     public Bomb(){
         neighbors = new ArrayList<>();
     }
@@ -22,6 +25,7 @@ public class Bomb extends JButton {
     public Bomb(boolean isExplosive){
         this.isExplosive = isExplosive;
     }
+
 
     public boolean isExplosive() {
         return isExplosive;
@@ -53,4 +57,6 @@ public class Bomb extends JButton {
     public void setChecked(boolean checked) {
         this.checked = checked;
     }
+
+
 }

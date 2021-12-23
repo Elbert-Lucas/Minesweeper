@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class BombListener implements MouseListener {
+
     JFrame frame;
     Bomb bomb;
     int x, y;
@@ -26,7 +27,7 @@ public class BombListener implements MouseListener {
     public void mouseClicked(MouseEvent click) {
         /*
             If the right button is clicked, put or remove a bomb checkmark.
-            If is the left button, click the button.
+            Else If is the left button, show the button content.
             Scroll button does anything
          */
         if (click.getButton() == MouseEvent.BUTTON3) {

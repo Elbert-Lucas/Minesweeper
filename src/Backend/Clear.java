@@ -6,6 +6,10 @@ import javax.swing.*;
 
 public class Clear {
     public static void clearOne(JFrame frame, Bomb bomb, int x, int y){
+        /*
+            This simple method reveal a number field
+         */
+        bomb.setChecked(true);
 
         JLabel number;
 
@@ -21,6 +25,11 @@ public class Clear {
     }
 
     public static void clearSequence(JFrame frame, Bomb bomb) {
+        /*
+            This recursive method reveal empty fields until find number fields.
+            bomb.checked is a variable to prevent useless recursion calls.
+         */
+
         bomb.setChecked(true);
         frame.remove(bomb);
 

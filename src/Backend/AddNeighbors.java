@@ -42,13 +42,20 @@ public class AddNeighbors{
     }
 
     public static void addNumbers(Bomb bomb, Bomb[][] field, int auxIndex, int auxIndex2D){
+        /*
+        This method create numbered neighbors
+         */
         if (bomb.isExplosive()){
             field[auxIndex][auxIndex2D].setCloseBombs();
         }else if(field[auxIndex][auxIndex2D].isExplosive()){
             bomb.setCloseBombs();
         }
     }
+
     public static void addNumbersInConfirmDraw(Bomb bomb){
+        /*
+        This method create numbered neighbors for bombs created on confirmDraw method.
+         */
         for (Bomb neighbor:bomb.getNeighbors()){
             neighbor.setCloseBombs();
         }
