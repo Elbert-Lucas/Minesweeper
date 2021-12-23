@@ -13,3 +13,6 @@ A Minesweeper game.
 
 ## BOMB!
 ![image](https://user-images.githubusercontent.com/63523828/147175933-ad9850e6-94f5-423c-acfd-055d66e9b413.png)
+
+## Bomb neighbors
+![image](https://user-images.githubusercontent.com/63523828/147176124-e5cf7a2f-a002-4054-a02d-22f338c8aa34.png)
