@@ -1,7 +1,6 @@
 package Backend;
 
 import Backend.Elements.Bomb;
-import GUI.Elements.SoundEffects;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,10 +23,10 @@ public class Clear {
             Image resizeImage = bombImage.getImage().getScaledInstance(22,22, Image.SCALE_DEFAULT);
             bombImage = new ImageIcon(resizeImage);
 
-            SoundEffects.explosiion();
             number.setIcon(bombImage);
 
         }
+
         else number.setText(String.valueOf(bomb.getCloseBombs()));
 
         number.setBounds(x + 10, y + 3, 20, 25);
