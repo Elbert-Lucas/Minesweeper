@@ -11,8 +11,12 @@ A Minesweeper game.
 ## Empty fields
 ![image](https://user-images.githubusercontent.com/63523828/147175884-57427a87-b558-496b-a376-cc28de8e751e.png)
 
-## BOMB!
-![image](https://user-images.githubusercontent.com/63523828/147175933-ad9850e6-94f5-423c-acfd-055d66e9b413.png)
+## Bomb
+![image](https://user-images.githubusercontent.com/63523828/147295777-26853035-fbe7-4319-b5e1-7af92a9d24f7.png)
 
-## Bomb neighbors
-![image](https://user-images.githubusercontent.com/63523828/147176124-e5cf7a2f-a002-4054-a02d-22f338c8aa34.png)
+## Lose
+![image](https://user-images.githubusercontent.com/63523828/147295721-96739206-627e-449e-809c-e6b64489ce93.png)
+
+## Victory
+![image](https://user-images.githubusercontent.com/63523828/147295658-8948102f-4550-4d08-9d49-f5b59d886d40.png)
+
