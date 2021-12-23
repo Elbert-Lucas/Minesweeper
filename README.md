@@ -2,6 +2,12 @@
 
 A Minesweeper game.
 
+### Rules:
+
+Minesweeper rules are very simple. The board is divided into cells, with mines randomly distributed. To win, you need to open all the cells. The number on a cell shows the number of mines adjacent to it. Using this information, you can determine cells that are safe, and cells that contain mines. Cells suspected of being mines can be marked with a flag using the right mouse button.
+
+# Screens:
+
 ## Game init:
 ![image](https://user-images.githubusercontent.com/63523828/147175751-5bc69c31-a4f1-4b5f-a2dd-82877eaf30c9.png)
 
