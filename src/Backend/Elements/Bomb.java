@@ -9,23 +9,21 @@ public class Bomb extends JButton {
     /*
         Bomb fields are just JButton with a few extra elements
      */
+    //This static int is useful to declare victory
+    private static int countBombsAvoid;
+
     int closeBombs;
     List<Bomb> neighbors;
     boolean isExplosive;
     boolean checked;
 
-    {
-        closeBombs = 0;
+    static {
+        Bomb.countBombsAvoid = 12*12;
     }
-
-    public Bomb(){
+    {
+        this.closeBombs = 0;
         neighbors = new ArrayList<>();
     }
-
-    public Bomb(boolean isExplosive){
-        this.isExplosive = isExplosive;
-    }
-
 
     public boolean isExplosive() {
         return isExplosive;
@@ -41,6 +39,7 @@ public class Bomb extends JButton {
     public void setCloseBombs() {
         if (!this.isExplosive) this.closeBombs++;
         else this.closeBombs = 9;
+    //Explosives bombs receives 9 in closeBombs var
     }
 
     public void addNeighbor (Bomb bomb){
@@ -58,5 +57,10 @@ public class Bomb extends JButton {
         this.checked = checked;
     }
 
-
+    public static int getCountBombsAvoid() {
+        return countBombsAvoid;
+    }
+    public static void setCountBombsAvoid(int countChecked) {
+        Bomb.countBombsAvoid = countChecked;
+    }
 }

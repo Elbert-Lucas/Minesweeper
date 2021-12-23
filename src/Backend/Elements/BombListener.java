@@ -1,6 +1,7 @@
 package Backend.Elements;
 
 import Backend.Clear;
+import GUI.Elements.Result;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,17 +38,25 @@ public class BombListener implements MouseListener {
             if (bomb.closeBombs > 0) {
                 //Show the number just if it´s different from 0
                 Clear.clearOne(frame, bomb, x, y);
+                Bomb.setCountBombsAvoid(Bomb.getCountBombsAvoid() - 1);
             } else {
                 //Clear sequential zeros
                 Clear.clearSequence(frame, bomb);
             }
             frame.repaint();
 
+
             if (bomb.isExplosive) {
                 //LOSE
+                Result.lose();
+            }else if (Bomb.getCountBombsAvoid() <= 20){
+                //WIN
+                //All fields checked, except the explosive ones
+                Result.victory();
             }
         }
-    }
+   }
+
     @Override
     public void mousePressed(MouseEvent e) {
 

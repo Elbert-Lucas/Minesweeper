@@ -45,7 +45,7 @@ public class Gui {
             bomb.setBounds(x,y, 30,30);
             bomb.addMouseListener(new BombListener(frame, bomb, x, y));
 
-            //DrawBombs.draw(bomb);
+            DrawBombs.draw(bomb);
             // This function call puts dangerous bombs on random places
 
 
